@@ -25,9 +25,9 @@ export default function Navbar() {
 				<>
 					<div
 						onClick={onMenuButtonClick}
-						className='fixed bg-dark bg-opacity-70 top-0 bottom-0 right-0 left-0 z-10'
+						className='fixed bg-dark bg-opacity-70 top-0 bottom-0 right-0 left-0 z-30'
 					></div>
-					<div className='fixed bg-light top-0 bottom-0 right-0 left-24 z-50'></div>
+					<div className='fixed bg-light top-0 bottom-0 right-0 left-24 z-40'></div>
 				</>
 			)}
 		</nav>
