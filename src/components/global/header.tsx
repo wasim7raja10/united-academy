@@ -14,11 +14,11 @@ import { Fragment } from "react";
 
 export const Header = () => {
 	return (
-		<header className=''>
+		<header>
 			<div className='container py-4 flex items-center justify-between border-b'>
 				<div className='flex items-center gap-4'>
 					<img src={"/favicon.svg"} alt={"Logo"} height={72} width={72} />
-					<div className=''>
+					<div>
 						<h1 className='text-2xl'>United Academy</h1>
 						<p className='text-lg'>Samsi, Malda</p>
 					</div>
