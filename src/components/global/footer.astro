@@ -1,8 +1,8 @@
 ---
 import { MdFacebook, MdWhatsapp, MdMail } from "react-icons/md";
 import { FaYoutube } from "react-icons/fa";
-import { FaLocationDot } from "react-icons/fa6";
-import { BiPhoneCall } from "react-icons/bi";
+import { MdOutlineLocationOn } from "react-icons/md";
+import { FiPhoneCall } from "react-icons/fi";
 
 const year = new Date().getFullYear();
 ---
@@ -18,12 +18,12 @@ const year = new Date().getFullYear();
           </a>
           <p class="flex items-center text-gray-700 mb-7 text-base">
             <span class="text-3xl px-2">
-              <FaLocationDot />
+              <MdOutlineLocationOn client:only react />
             </span>
              138 Ruby Park, Kasba Rathtala, Kolkata - 700078,West Bengal
           </p>
           <p class="text-dark flex items-center text-sm font-medium">
-            <span class="text-3xl px-2"><BiPhoneCall /></span>
+            <span class="text-3xl px-2"><FiPhoneCall client:only react /></span>
             <span>+012 (345) 678 99</span>
           </p>
         </div>
@@ -134,16 +134,16 @@ const year = new Date().getFullYear();
           <h4 class="text-dark mb-4 text-lg font-semibold">Follow Us On</h4>
           <div class="mb-6 flex text-3xl gap-8 items-center">
             <a href="#" class=" ">
-              <MdFacebook />
+              <MdFacebook client:only react />
             </a>
             <a href="#" class="">
-              <MdWhatsapp />
+              <MdWhatsapp client:only react />
             </a>
             <a href="#" class="">
-              <MdMail />
+              <MdMail  client:only react/>
             </a>
             <a href="#" class="">
-              <FaYoutube />
+              <FaYoutube client:only react />
             </a>
           </div>
         </div>
