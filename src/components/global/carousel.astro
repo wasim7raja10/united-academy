@@ -3,7 +3,7 @@
 ---
 
 <div>
-	<section class='splide' aria-label='Homepage Image Carousel'>
+	<section class='splide' id='carousel' aria-label='Homepage Image Carousel'>
 		<div class='splide__track'>
 			<ul class='splide__list'>
 				<li class='splide__slide'>
@@ -25,11 +25,10 @@
 		</div>
 	</section>
 </div>
-
 <script>
 	// Default theme
 	import "@splidejs/splide/css";
 	import Splide from "@splidejs/splide";
 
-	new Splide(".splide").mount();
+	new Splide("#carousel").mount();
 </script>

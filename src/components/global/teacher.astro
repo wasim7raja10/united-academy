@@ -1,0 +1,58 @@
+---
+import { teachers } from "@/shared/data/dummy/teachers";
+---
+
+<div class='splide py-10' id='teachers' aria-label='Teacher Carousel'>
+	<div class='splide__track'>
+		<div class='splide__list'>
+			{
+				teachers.map((teacher) => (
+					<div class='h-60 w-44 bg-white rounded-md shadow-sm splide__slide'>
+						<div class='flex justify-center w-full'>
+							<img
+								src={teacher.imageSrc}
+								class='h-32 w-32 rounded-full'
+								alt={teacher.name}
+							/>
+						</div>
+						<div class='p-4 text-center'>
+							<h2 class='text-xl font-semibold text-gray-800'>
+								{teacher.name}
+							</h2>
+							<p class='text-gray-600'>{teacher.title}</p>
+						</div>
+					</div>
+				))
+			}
+		</div>
+	</div>
+</div>
+
+<script>
+	// Default theme
+	import "@splidejs/splide/css";
+	import Splide from "@splidejs/splide";
+
+	new Splide("#teachers", {
+		perPage: 5, // Display 5 cards by default (for large screens)
+		breakpoints: {
+			1200: {
+				// when window width is <= 1200px
+				perPage: 4, // Display 4 cards
+			},
+			992: {
+				// when window width is <= 992px
+				perPage: 3, // Display 3 cards
+			},
+			768: {
+				// when window width is <= 768px
+				perPage: 2, // Display 2 cards
+			},
+			576: {
+				// when window width is <= 576px
+				perPage: 1, // Display 1 card
+			},
+		},
+		gap: 20,
+	}).mount();
+</script>
