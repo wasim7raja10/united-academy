@@ -33,7 +33,7 @@ interface SyllabusItem {
               <div class="flex flex-col justify-center items-center h-full">
                 <a href={item.pdfSrc} class="">
                   <span class="text-6xl text-red-500">
-                    <AiOutlineFilePdf className="" />
+                    <AiOutlineFilePdf client:only react  className="" />
                   </span>
                   <p class="py-5 text-2xl">{item.class}</p>
                 </a>
