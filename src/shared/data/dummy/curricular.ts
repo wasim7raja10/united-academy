@@ -1,4 +1,3 @@
-// data.ts
 export const  Nursery_Lower = [
   "Colouring Activity",
   "Rhyme Time",

@@ -1,0 +1,29 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import "@/styles/globals.css";
+import { specialRules } from "@/shared/data/dummy/specialRules";
+---
+
+<Layout title="United Academy">
+  <main class="bg-gray-100 min-h-screen">
+    <div class="container">
+      <img
+        src="/special-rules-banner.jpg"
+        class="rounded-md w-full h-auto max-h-80"
+        alt="About Banner"
+      />
+      <div class="bg-white py-5 my-5 rounded-md shadow-sm">
+        <h1 class="text-gray-600 sm:text-4xl text-2xl px-10 font-semibold">
+          Special Rules
+        </h1>
+      </div>
+      <div>
+        <ul
+          class="list-decimal space-y-2 text-base sm:text-xl text-gray-600 px-10 p-5"
+        >
+          {specialRules.map((rule: string) => <li class="">{rule}</li>)}
+        </ul>
+      </div>
+    </div>
+  </main>
+</Layout>
