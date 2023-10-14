@@ -1,0 +1,19 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { Curricular } from "@/components/global/curricular";
+
+import "@/styles/globals.css";
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<Layout title="United Academy">
+  <main class="bg-gray-100 min-h-screen">
+    <div class="container">
+      <Curricular client:only="react" />
+    </div>
+  </main>
+</Layout>
