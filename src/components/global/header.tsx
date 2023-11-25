@@ -84,7 +84,7 @@ export const Header = () => {
               <ul className="py-6">
                 {navigationData.map((item) => (
                   <li className="py-2" key={item.href}>
-                    <SheetHeader>
+                    <SheetHeader className="text-left">
                       <SheetTitle>{item.title}</SheetTitle>
                     </SheetHeader>
                     <Separator />
