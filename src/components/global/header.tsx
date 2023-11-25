@@ -81,40 +81,28 @@ export const Header = () => {
               </Button>
             </SheetTrigger>
             <SheetContent>
-              <SheetHeader>
-                <SheetTitle>Edit profile</SheetTitle>
-                <SheetDescription>
-                  Make changes to your profile here. Click save when you're
-                  done.
-                </SheetDescription>
-              </SheetHeader>
-              <div className="grid gap-4 py-4">
-                <div className="grid grid-cols-4 items-center gap-4">
-                  <Label htmlFor="name" className="text-right">
-                    Name
-                  </Label>
-                  <Input
-                    id="name"
-                    value="Pedro Duarte"
-                    className="col-span-3"
-                  />
-                </div>
-                <div className="grid grid-cols-4 items-center gap-4">
-                  <Label htmlFor="username" className="text-right">
-                    Username
-                  </Label>
-                  <Input
-                    id="username"
-                    value="@peduarte"
-                    className="col-span-3"
-                  />
-                </div>
-              </div>
-              <SheetFooter>
-                <SheetClose asChild>
-                  <Button type="submit">Save changes</Button>
-                </SheetClose>
-              </SheetFooter>
+              <ul className="py-6">
+                {navigationData.map((item) => (
+                  <li className="py-2" key={item.href}>
+                    <SheetHeader>
+                      <SheetTitle>{item.title}</SheetTitle>
+                    </SheetHeader>
+                    <Separator />
+                    <ul className="space-y-1 py-2 text-lg">
+                      {item.child?.map((child) => (
+                        <li className="py-1" key={child.href}>
+                          <a
+                            href={item.href + "/" + child.href}
+                            className="capitalize"
+                          >
+                            {child.title}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </li>
+                ))}
+              </ul>
             </SheetContent>
           </Sheet>
         </div>
