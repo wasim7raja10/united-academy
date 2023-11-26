@@ -13,14 +13,9 @@ import { Separator } from "../ui/separator";
 import { Fragment } from "react";
 import { HamburgerMenuIcon } from "@radix-ui/react-icons";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import {
   Sheet,
-  SheetClose,
   SheetContent,
-  SheetDescription,
-  SheetFooter,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
@@ -30,10 +25,10 @@ export const Header = () => {
     <header>
       <div className="container py-4 flex items-center justify-between border-b">
         <div className="flex items-center gap-4">
-          <img src={"/favicon.svg"} alt={"Logo"} height={72} width={72} />
+          <img src={"/favicon.svg"} alt={"Logo"} className="w-12 sm:w-16 h-12 sm:h-16" height={72} width={72} />
           <div>
-            <h1 className="text-2xl">United Academy</h1>
-            <p className="text-lg">Samsi, Malda</p>
+            <h1 className="sm:text-2xl text-lg">United Academy</h1>
+            <p className="sm:text-lg">Samsi, Malda</p>
           </div>
         </div>
         {/* desktop */}
@@ -80,15 +75,15 @@ export const Header = () => {
                 <HamburgerMenuIcon className="scale-150" />
               </Button>
             </SheetTrigger>
-            <SheetContent>
-              <ul className="py-6">
+            <SheetContent className="px-0">
+              <ul className="py-2 px-4 overflow-auto h-full">
                 {navigationData.map((item) => (
                   <li className="py-2" key={item.href}>
                     <SheetHeader className="text-left">
                       <SheetTitle>{item.title}</SheetTitle>
                     </SheetHeader>
                     <Separator />
-                    <ul className="space-y-1 py-2 text-lg">
+                    <ul className="space-y-1 py-2">
                       {item.child?.map((child) => (
                         <li className="py-1" key={child.href}>
                           <a
