@@ -22,8 +22,8 @@ import {
 } from "@/components/ui/sheet";
 export const Header = () => {
   return (
-    <header className="sticky top-0 z-50 bg-white">
-      <div className="container py-4 flex items-center justify-between border-b">
+    <header className="sticky top-0 z-50 bg-white shadow-sm">
+      <div className="container py-4 flex items-center justify-between">
         <div className="flex items-center gap-4">
           <img src={"/favicon.svg"} alt={"Logo"} className="w-12 sm:w-16 h-12 sm:h-16" height={72} width={72} />
           <div>
