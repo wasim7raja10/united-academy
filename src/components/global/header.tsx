@@ -93,7 +93,7 @@ export const Header = () => {
                       {item.child?.map((child) => (
                         <li className="py-1" key={child.href}>
                           <a
-                            href={item.href + "/" + child.href}
+                            href={"/" + item.href + "/" + child.href}
                             className="capitalize"
                           >
                             {child.title}
