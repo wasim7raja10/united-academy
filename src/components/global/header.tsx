@@ -25,7 +25,13 @@ export const Header = () => {
     <header className="sticky top-0 z-50 bg-white shadow-sm">
       <div className="container py-4 flex items-center justify-between">
         <div className="flex items-center gap-4">
-          <img src={"/favicon.svg"} alt={"Logo"} className="w-12 sm:w-16 h-12 sm:h-16" height={72} width={72} />
+          <img
+            src={"/favicon.svg"}
+            alt={"Logo"}
+            className="w-12 sm:w-16 h-12 sm:h-16"
+            height={72}
+            width={72}
+          />
           <div>
             <h1 className="sm:text-2xl text-lg">United Academy</h1>
             <p className="sm:text-lg">Samsi, Malda</p>
@@ -47,7 +53,7 @@ export const Header = () => {
                           <li className="p-2">
                             <NavigationMenuLink asChild>
                               <a
-                                href={item.href + "/" + child.href}
+                                href={"/" + item.href + "/" + child.href}
                                 className="capitalize"
                               >
                                 {child.title}
