@@ -1,7 +1,7 @@
 ---
 import { MdFacebook, MdWhatsapp, MdMail } from "react-icons/md";
 import { FaYoutube } from "react-icons/fa";
-import {MobileIcon, PaperPlaneIcon} from "@radix-ui/react-icons";
+import { MobileIcon, PaperPlaneIcon } from "@radix-ui/react-icons";
 
 const year = new Date().getFullYear();
 ---
@@ -13,23 +13,23 @@ const year = new Date().getFullYear();
         <div class="flex flex-col justify-between h-full gap-2">
           <a href="/" class="flex items-center gap-2">
             <img src={"/favicon.svg"} alt={"Logo"} height={72} width={72} />
-            <span class="text-2xl">United Academy </span>
+            <span class="text-2xl">United Academy</span>
           </a>
           <div class="flex items-center gap-2">
-            <PaperPlaneIcon className="scale-125" client:load />
+            <PaperPlaneIcon className="scale-125" client:only="react" />
             <address>United Academy, Samsi, Malda, West Bengal, India</address>
           </div>
           <div class="flex items-center gap-2">
-            <MobileIcon className="scale-125" client:load />
+            <MobileIcon className="scale-125" client:only="react" />
             <a href="tel:+91">9679774449</a>
           </div>
         </div>
       </div>
       <div class="">
-        <div class="  ">
+        <div class="">
           <h4 class="text-dark text-lg mb-2 font-semibold">The School</h4>
-          <ul class=" " >
-            <li class=" " >
+          <ul class="">
+            <li class="">
               <a
                 href="/about"
                 class="text-gray-700 hover:text-black inline-block text-base leading-loose"
@@ -130,17 +130,17 @@ const year = new Date().getFullYear();
         <div class="w-full">
           <h4 class="text-dark text-lg mb-2 font-semibold">Follow Us On</h4>
           <div class="mb-6 flex text-3xl gap-8 items-center">
-            <a href="#" class=" ">
-              <MdFacebook client:only react />
+            <a href="#" class="">
+              <MdFacebook client:only="react" />
             </a>
             <a href="#" class="">
-              <MdWhatsapp client:only react />
+              <MdWhatsapp client:only="react" />
             </a>
             <a href="#" class="">
-              <MdMail  client:only react/>
+              <MdMail client:only="react" />
             </a>
             <a href="#" class="">
-              <FaYoutube client:only react />
+              <FaYoutube client:only="react" />
             </a>
           </div>
         </div>

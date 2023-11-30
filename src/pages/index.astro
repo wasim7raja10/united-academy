@@ -4,11 +4,8 @@ import Carousel from "@/components/global/carousel.astro";
 import Teachers from "@/components/global/teacher.astro";
 import HomeGallery from "@/components/global/homegallery.astro";
 
-import tb from 'react-icons/tb';
-import tfi from "react-icons/tfi";
-
-const { TbTargetArrow, TbPhoto } = tb;
-const { TfiAnnouncement } = tfi;
+import { TbTargetArrow, TbPhoto } from "react-icons/tb";
+import { TfiAnnouncement } from "react-icons/tfi";
 ---
 
 <Layout title="United Academy">
@@ -23,19 +20,19 @@ const { TfiAnnouncement } = tfi;
           href="/the-school/mission-vision"
           class="flex items-center hover:text-primary gap-2"
         >
-          <TbTargetArrow client:load /> Mission & Vision
+          <TbTargetArrow client:only="react" /> Mission & Vision
         </a>
         <a
           href="/the-school/announcement"
           class="flex items-center hover:text-primary gap-2"
         >
-          <TfiAnnouncement client:load /> Announcement
+          <TfiAnnouncement client:only="react" /> Announcement
         </a>
         <a
           href="/the-school/gallery"
           class="flex items-center hover:text-primary gap-2"
         >
-          <TbPhoto client:load /> Happening
+          <TbPhoto client:only="react" /> Happening
         </a>
       </div>
 

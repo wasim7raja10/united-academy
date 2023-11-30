@@ -23,6 +23,6 @@ const { title } = Astro.props;
 	<body class='min-h-screen'>
 		<Header client:load />
 		<slot />
-		<Footer />
+		<Footer client:load />
 	</body>
 </html>
