@@ -1,8 +1,7 @@
 ---
 import { MdFacebook, MdWhatsapp, MdMail } from "react-icons/md";
 import { FaYoutube } from "react-icons/fa";
-import { MdOutlineLocationOn, MdOutlinePhone } from "react-icons/md";
-import {MobileIcon} from "@radix-ui/react-icons";
+import {MobileIcon, PaperPlaneIcon} from "@radix-ui/react-icons";
 
 const year = new Date().getFullYear();
 ---
@@ -11,13 +10,13 @@ const year = new Date().getFullYear();
   <div class="container mx-auto">
     <div class="-mx-4 px-4 gap-5 flex justify-between flex-wrap">
       <div class="">
-        <div class="flex flex-col justify-between h-full">
+        <div class="flex flex-col justify-between h-full gap-2">
           <a href="/" class="flex items-center gap-2">
             <img src={"/favicon.svg"} alt={"Logo"} height={72} width={72} />
             <span class="text-2xl">United Academy </span>
           </a>
           <div class="flex items-center gap-2">
-            <MdOutlineLocationOn className="scale-125" client:load />
+            <PaperPlaneIcon className="scale-125" client:load />
             <address>United Academy, Samsi, Malda, West Bengal, India</address>
           </div>
           <div class="flex items-center gap-2">
