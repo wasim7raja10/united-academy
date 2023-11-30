@@ -24,7 +24,7 @@ import {
 export const Header = () => {
   return (
     <header className="sticky top-0 z-50 bg-white shadow-sm">
-      <div className="container py-4 flex items-center justify-between">
+      <div className="container py-2 flex items-center justify-between">
         <div className="flex items-center gap-4">
           <img
             src={"/favicon.svg"}
