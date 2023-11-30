@@ -1,26 +1,23 @@
 ---
+import { getHomepageBanners } from "@/lib/api";
+import { urlForImage } from "@/lib/utils";
 
+const images = await getHomepageBanners();
 ---
 
-<div>
+<div class="-mx-8 sm:mx-0">
 	<section class='splide' id='carousel' aria-label='Homepage Image Carousel'>
 		<div class='splide__track'>
 			<ul class='splide__list'>
-				<li class='splide__slide'>
-					<div class='h-96 grid place-content-center'>
-						<h1>Slide 01</h1>
-					</div>
-				</li>
-				<li class='splide__slide'>
-					<div class='h-96 grid place-content-center'>
-						<h1>Slide 02</h1>
-					</div>
-				</li>
-				<li class='splide__slide'>
-					<div class='h-96 grid place-content-center'>
-						<h1>Slide 03</h1>
-					</div>
-				</li>
+				{images.map((it: any) => (
+					<li class='splide__slide'>
+						<img
+							src={urlForImage(it.asset).url()}
+							loading='lazy'
+							alt="Homepage Banner Image"
+						/>
+					</li>
+				))}
 			</ul>
 		</div>
 	</section>
@@ -30,5 +27,10 @@
 	import "@splidejs/splide/css";
 	import Splide from "@splidejs/splide";
 
-	new Splide("#carousel").mount();
+	new Splide("#carousel",  {
+  type   : 'loop',
+	autoplay: true,
+	arrows: false,
+
+}).mount();
 </script>

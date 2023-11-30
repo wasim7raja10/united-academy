@@ -25,7 +25,7 @@ export const Header = () => {
   return (
     <header className="sticky top-0 z-50 bg-white shadow-sm">
       <div className="container py-2 flex items-center justify-between">
-        <div className="flex items-center gap-4">
+        <a href="/" className="flex items-center gap-4">
           <img
             src={"/favicon.svg"}
             alt={"Logo"}
@@ -34,10 +34,10 @@ export const Header = () => {
             width={72}
           />
           <div>
-            <h1 className="sm:text-2xl text-lg">United Academy</h1>
-            <p className="sm:text-lg">Samsi, Malda</p>
+            <h1 className="sm:text-2xl text-lg leading-5">United Academy</h1>
+            <p className="sm:text-lg leading-none">Samsi, Malda</p>
           </div>
-        </div>
+        </a>
         {/* desktop */}
         <div className="hidden sm:block">
           <NavigationMenu>
