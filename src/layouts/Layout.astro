@@ -1,28 +1,36 @@
 ---
 import Footer from "@/components/global/footer.astro";
 import { Header } from "@/components/global/header";
+import { getAcademicCalendarAndFeesStructure } from "@/lib/api";
 import "@/styles/globals.css";
 
 interface Props {
-	title: string;
+  title: string;
 }
 
 const { title } = Astro.props;
+
+const [academicCalenderUrl, feesStructureUrl] =
+  await getAcademicCalendarAndFeesStructure();
 ---
 
 <!doctype html>
-<html lang='en'>
-	<head>
-		<meta charset='UTF-8' />
-		<meta name='description' content='Astro description' />
-		<meta name='viewport' content='width=device-width' />
-		<link rel='icon' type='image/svg+xml' href='/favicon.svg' />
-		<meta name='generator' content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body class='min-h-screen'>
-		<Header client:load />
-		<slot />
-		<Footer />
-	</body>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body class="min-h-screen">
+    <Header
+      academicCalendarUrl={academicCalenderUrl}
+      feesStructureUrl={feesStructureUrl}
+      client:load
+    />
+    <slot />
+    <Footer />
+  </body>
 </html>
