@@ -40,12 +40,14 @@ export const navigationData: NavigationItem[] = [
 				href: "syllabus",
 			},
 			{
-				title: "Holiday List",
-				href: "holiday-list",
+				title: "Academic Calendar",
+				href: "academic-calendar",
+				target: "_blank",
 			},
 			{
 				title: "Fees Structure",
 				href: "fees-structure",
+				target: "_blank",
 			},
 		],
 	},

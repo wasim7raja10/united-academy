@@ -10,7 +10,7 @@ import {
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
 import { Separator } from "../ui/separator";
-import { Fragment } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { HamburgerMenuIcon } from "@radix-ui/react-icons";
 import { Button } from "@/components/ui/button";
 import {
@@ -21,7 +21,35 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 
-export const Header = () => {
+export const Header = ({
+  academicCalendarUrl,
+  feesStructureUrl,
+}: {
+  academicCalendarUrl: string;
+  feesStructureUrl: string;
+}) => {
+  const [modifiedNavigationData, setModifiedNavigationData] =
+    useState(navigationData);
+
+  useEffect(() => {
+    if (academicCalendarUrl) {
+      setModifiedNavigationData(
+        navigationData.map((item) => {
+          item.child?.map((child) => {
+            if (child.href === "academic-calendar") {
+              child.href = academicCalendarUrl;
+              return child;
+            } else if (child.href === "fees-structure") {
+              child.href = feesStructureUrl;
+              return child;
+            }
+          });
+          return item;
+        }),
+      );
+    }
+  }, [academicCalendarUrl]);
+
   return (
     <header className="sticky top-0 z-50 bg-white shadow-sm">
       <div className="mx-4 sm:container py-2 flex items-center justify-between">
@@ -42,7 +70,7 @@ export const Header = () => {
         <div className="hidden sm:block">
           <NavigationMenu>
             <NavigationMenuList>
-              {navigationData.map((item) => (
+              {modifiedNavigationData.map((item) => (
                 <NavigationMenuItem key={item.href}>
                   <NavigationMenuTrigger>
                     <span className="text-base">{item.title}</span>
@@ -53,12 +81,22 @@ export const Header = () => {
                         <Fragment key={child.href}>
                           <li className="p-2">
                             <NavigationMenuLink asChild>
-                              <a
-                                href={"/" + item.href + "/" + child.href}
-                                className="capitalize"
-                              >
-                                {child.title}
-                              </a>
+                              {child.target ? (
+                                <a
+                                  href={child.href}
+                                  target={child.target}
+                                  className="capitalize"
+                                >
+                                  {child.title}
+                                </a>
+                              ) : (
+                                <a
+                                  href={"/" + item.href + "/" + child.href}
+                                  className="capitalize"
+                                >
+                                  {child.title}
+                                </a>
+                              )}
                             </NavigationMenuLink>
                           </li>
 
@@ -84,7 +122,7 @@ export const Header = () => {
             </SheetTrigger>
             <SheetContent className="px-0">
               <ul className="py-2 px-4 overflow-auto h-full">
-                {navigationData.map((item) => (
+                {modifiedNavigationData.map((item) => (
                   <li className="py-2" key={item.href}>
                     <SheetHeader className="text-left">
                       <SheetTitle>{item.title}</SheetTitle>
@@ -93,12 +131,22 @@ export const Header = () => {
                     <ul className="space-y-1 py-2">
                       {item.child?.map((child) => (
                         <li className="py-1" key={child.href}>
-                          <a
-                            href={"/" + item.href + "/" + child.href}
-                            className="capitalize"
-                          >
-                            {child.title}
-                          </a>
+                          {child.target ? (
+                            <a
+                              href={child.href}
+                              target={child.target}
+                              className="capitalize"
+                            >
+                              {child.title}
+                            </a>
+                          ) : (
+                            <a
+                              href={"/" + item.href + "/" + child.href}
+                              className="capitalize"
+                            >
+                              {child.title}
+                            </a>
+                          )}
                         </li>
                       ))}
                     </ul>
