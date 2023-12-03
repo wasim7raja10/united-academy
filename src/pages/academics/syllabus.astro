@@ -1,14 +1,18 @@
 ---
 import Layout from "@/layouts/Layout.astro";
+import { getSyllabus } from "@/lib/api";
 import "@/styles/globals.css";
 import { AiOutlineFilePdf } from "react-icons/ai";
-import { syllabus } from "@/shared/data/dummy/syllabus";
 
-interface SyllabusItem {
-  id: number;
-  pdfSrc: string;
-  class: string;
-}
+const syllabus = await getSyllabus();
+
+console.log(syllabus);
+
+
+type Syllabus = {
+  originalFilename: string;
+  url: string;
+};
 ---
 
 <Layout title="Unites Academy">
@@ -28,14 +32,14 @@ interface SyllabusItem {
         class="grid grid-cols-1 py-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4"
       >
         {
-          syllabus.map((item: SyllabusItem) => (
+          syllabus.map((it: {asset: Syllabus}) => (
             <div class="mx-auto rounded-md  hover:outline outline-blue-400 outline-2 text-center content-center bg-white w-52 h-52">
               <div class="flex flex-col justify-center items-center h-full">
-                <a href={item.pdfSrc} class="">
+                <a href={it.asset.url}>
                   <span class="text-6xl text-red-500">
-                    <AiOutlineFilePdf client:only="react" className="" />
+                    <AiOutlineFilePdf client:only="react" />
                   </span>
-                  <p class="py-5 text-2xl">{item.class}</p>
+                  <p class="py-5 text-2xl">{it.asset.originalFilename}</p>
                 </a>
               </div>
             </div>
