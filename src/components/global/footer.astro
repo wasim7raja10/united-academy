@@ -56,7 +56,9 @@ const modifiedNavigationData = navigationData.map((item) => {
         modifiedNavigationData.map((nav) => (
           <div class="">
             <div class="w-full">
-              <h4 class="text-dark text-lg mb-2 font-semibold">{nav.title}</h4>
+              <h4 class="text-dark text-lg mb-2 font-semibold capitalize">
+                {nav.title}
+              </h4>
               <ul>
                 {nav?.child?.map((link) => (
                   <li>
@@ -64,14 +66,14 @@ const modifiedNavigationData = navigationData.map((item) => {
                       <a
                         href={link.href}
                         target={link.target}
-                        class="text-gray-700 hover:text-black inline-block text-base leading-loose"
+                        class="text-gray-700 hover:text-black inline-block text-base leading-loose capitalize"
                       >
                         {link.title}
                       </a>
                     ) : (
                       <a
                         href={link.href}
-                        class="text-gray-700 hover:text-black inline-block text-base leading-loose"
+                        class="text-gray-700 hover:text-black inline-block text-base leading-loose capitalize"
                       >
                         {link.title}
                       </a>
