@@ -146,7 +146,7 @@ export const Header = ({
                             </a>
                           ) : (
                             <a
-                              href={"/" + item.href + "/" + child.href}
+                              href={`/${item.href}/${child.href}`}
                               className="capitalize"
                             >
                               {child.title}
