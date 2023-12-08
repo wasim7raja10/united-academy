@@ -2,24 +2,28 @@
 import { MdFacebook, MdWhatsapp, MdMail } from "react-icons/md";
 import { FaYoutube } from "react-icons/fa";
 import { MobileIcon, PaperPlaneIcon } from "@radix-ui/react-icons";
-import {
-  getAcademicCalendarAndFeesStructure,
-  getSchoolTimingAndRulesRegulations,
-} from "@/lib/api";
 import { navigationData } from "@/shared/data";
 
+interface Props {
+  academicCalendarUrl: string;
+  feesStructureUrl: string;
+  schoolTimingUrl: string;
+  rulesRegulationsUrl: string;
+}
+
+const {
+  academicCalendarUrl,
+  feesStructureUrl,
+  schoolTimingUrl,
+  rulesRegulationsUrl,
+} = Astro.props;
+
 const year = new Date().getFullYear();
-
-const [academicCalenderUrl, feesStructureUrl] =
-  await getAcademicCalendarAndFeesStructure();
-
-const [schoolTimingUrl, rulesRegulationsUrl] =
-  await getSchoolTimingAndRulesRegulations();
 
 const modifiedNavigationData = navigationData.map((item) => {
   item?.child?.map((child) => {
     if (child.href === "academic-calendar") {
-      child.href = academicCalenderUrl;
+      child.href = academicCalendarUrl;
     } else if (child.href === "fees-structure") {
       child.href = feesStructureUrl;
     } else if (child.href === "school-timing") {
@@ -72,7 +76,7 @@ const modifiedNavigationData = navigationData.map((item) => {
                       </a>
                     ) : (
                       <a
-                        href={link.href}
+                        href={`/${nav.href}/${link.href}`}
                         class="text-gray-700 hover:text-black inline-block text-base leading-loose capitalize"
                       >
                         {link.title}

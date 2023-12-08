@@ -39,6 +39,11 @@ const [schoolTimingUrl, rulesRegulationsUrl] =
       client:load
     />
     <slot />
-    <Footer />
+    <Footer
+      academicCalendarUrl={academicCalenderUrl}
+      feesStructureUrl={feesStructureUrl}
+      schoolTimingUrl={schoolTimingUrl}
+      rulesRegulationsUrl={rulesRegulationsUrl}
+    />
   </body>
 </html>
