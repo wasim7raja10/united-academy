@@ -24,9 +24,13 @@ import {
 export const Header = ({
   academicCalendarUrl,
   feesStructureUrl,
+  schoolTimingUrl,
+  rulesRegulationsUrl,
 }: {
   academicCalendarUrl: string;
   feesStructureUrl: string;
+  schoolTimingUrl: string;
+  rulesRegulationsUrl: string;
 }) => {
   const [modifiedNavigationData, setModifiedNavigationData] =
     useState(navigationData);
@@ -38,11 +42,14 @@ export const Header = ({
           item.child?.map((child) => {
             if (child.href === "academic-calendar") {
               child.href = academicCalendarUrl;
-              return child;
             } else if (child.href === "fees-structure") {
               child.href = feesStructureUrl;
-              return child;
+            } else if (child.href === "school-timing") {
+              child.href = schoolTimingUrl;
+            } else if (child.href === "rules-regulations") {
+              child.href = rulesRegulationsUrl;
             }
+            return child;
           });
           return item;
         }),
