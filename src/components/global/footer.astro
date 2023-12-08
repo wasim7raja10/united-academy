@@ -2,8 +2,12 @@
 import { MdFacebook, MdWhatsapp, MdMail } from "react-icons/md";
 import { FaYoutube } from "react-icons/fa";
 import { MobileIcon, PaperPlaneIcon } from "@radix-ui/react-icons";
+import { getAcademicCalendarAndFeesStructure } from "@/lib/api";
 
 const year = new Date().getFullYear();
+
+const [academicCalenderUrl, feesStructureUrl] =
+  await getAcademicCalendarAndFeesStructure();
 ---
 
 <footer class="w-full bg-white py-10">
@@ -70,7 +74,7 @@ const year = new Date().getFullYear();
           <ul>
             <li>
               <a
-                href="javascript:void(0)"
+                href="/academics/syllabus"
                 class="text-gray-700 hover:text-black inline-block text-base leading-loose"
               >
                 Syllabus
@@ -78,15 +82,17 @@ const year = new Date().getFullYear();
             </li>
             <li>
               <a
-                href="/holiday-list"
+                href={academicCalenderUrl}
+                target="_blank"
                 class="text-gray-700 hover:text-black inline-block text-base leading-loose"
               >
-                Holiday List
+                Academy Calendar
               </a>
             </li>
             <li>
               <a
-                href="javascript:void(0)"
+                href={feesStructureUrl}
+                target="_blank"
                 class="text-gray-700 hover:text-black inline-block text-base leading-loose"
               >
                 Fees Structure
@@ -162,5 +168,4 @@ const year = new Date().getFullYear();
     </div>
     <div></div>
   </div>
-  <!-- ====== Footer Section End -->
 </footer>
