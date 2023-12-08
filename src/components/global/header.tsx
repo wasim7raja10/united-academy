@@ -36,25 +36,23 @@ export const Header = ({
     useState(navigationData);
 
   useEffect(() => {
-    if (academicCalendarUrl) {
-      setModifiedNavigationData(
-        navigationData.map((item) => {
-          item.child?.map((child) => {
-            if (child.href === "academic-calendar") {
-              child.href = academicCalendarUrl;
-            } else if (child.href === "fees-structure") {
-              child.href = feesStructureUrl;
-            } else if (child.href === "school-timing") {
-              child.href = schoolTimingUrl;
-            } else if (child.href === "rules-regulations") {
-              child.href = rulesRegulationsUrl;
-            }
-            return child;
-          });
-          return item;
-        }),
-      );
-    }
+    setModifiedNavigationData(
+      navigationData.map((item) => {
+        item.child?.map((child) => {
+          if (child.href === "academic-calendar") {
+            child.href = academicCalendarUrl;
+          } else if (child.href === "fees-structure") {
+            child.href = feesStructureUrl;
+          } else if (child.href === "school-timing") {
+            child.href = schoolTimingUrl;
+          } else if (child.href === "rules-regulations") {
+            child.href = rulesRegulationsUrl;
+          }
+          return child;
+        });
+        return item;
+      }),
+    );
   }, [academicCalendarUrl]);
 
   return (

@@ -18,16 +18,8 @@ export const navigationData: NavigationItem[] = [
         href: "principals-desk",
       },
       {
-        title: "infrastructure",
-        href: "infrastructure",
-      },
-      {
         title: "gallery",
         href: "gallery",
-      },
-      {
-        title: "contact",
-        href: "contact",
       },
     ],
   },
