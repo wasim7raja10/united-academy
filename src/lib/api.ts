@@ -30,3 +30,12 @@ export async function getAcademicCalendarAndFeesStructure(): Promise<any> {
   const urls = documents.map((doc: any) => doc.url);
   return urls;
 }
+
+export async function getSchoolTimingAndRulesRegulations(): Promise<any> {
+  const query = `*[_type == "pdf" && (slug.current == 'school-timing' || slug.current == 'rules-and-regulations')][].pdf[] {
+    "url": asset->url
+  }`;
+  const documents = await client.fetch<any>(query);
+  const urls = documents.map((doc: any) => doc.url);
+  return urls;
+}

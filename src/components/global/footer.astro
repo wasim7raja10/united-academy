@@ -2,12 +2,18 @@
 import { MdFacebook, MdWhatsapp, MdMail } from "react-icons/md";
 import { FaYoutube } from "react-icons/fa";
 import { MobileIcon, PaperPlaneIcon } from "@radix-ui/react-icons";
-import { getAcademicCalendarAndFeesStructure } from "@/lib/api";
+import {
+  getAcademicCalendarAndFeesStructure,
+  getSchoolTimingAndRulesRegulations,
+} from "@/lib/api";
 
 const year = new Date().getFullYear();
 
 const [academicCalenderUrl, feesStructureUrl] =
   await getAcademicCalendarAndFeesStructure();
+
+const [schoolTimingUrl, rulesRegulationsUrl] =
+  await getSchoolTimingAndRulesRegulations();
 ---
 
 <footer class="w-full bg-white py-10">
@@ -107,7 +113,7 @@ const [academicCalenderUrl, feesStructureUrl] =
           <ul>
             <li>
               <a
-                href="/curricular-activities"
+                href="/students/co-curricular-activities"
                 class="text-gray-700 hover:text-black inline-block text-base leading-loose"
               >
                 Co-Curricular Activities
@@ -115,7 +121,8 @@ const [academicCalenderUrl, feesStructureUrl] =
             </li>
             <li>
               <a
-                href="javascript:void(0)"
+                href={schoolTimingUrl}
+                target="_blank"
                 class="text-gray-700 hover:text-black inline-block text-base leading-loose"
               >
                 School Timing
@@ -123,10 +130,11 @@ const [academicCalenderUrl, feesStructureUrl] =
             </li>
             <li>
               <a
-                href="/special-rules"
+                href={rulesRegulationsUrl}
+                target="_blank"
                 class="text-gray-700 hover:text-black inline-block text-base leading-loose"
               >
-                Rules Regulation
+                Rules and Regulations
               </a>
             </li>
           </ul>
