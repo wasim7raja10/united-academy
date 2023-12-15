@@ -24,6 +24,6 @@ export function getTitleAndDateFromFilename(filename: string) {
   const [title, date] = filename.split("_");
   return {
     title,
-    date: date.replace(".pdf", ""),
+    date: date.replace(".pdf", "").replace(/-/g, "/"),
   };
 }
