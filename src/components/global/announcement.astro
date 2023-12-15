@@ -1,0 +1,30 @@
+---
+import { FileTextIcon } from "@radix-ui/react-icons";
+
+import { getNotices } from "@/lib/api";
+import { getTitleAndDateFromFilename } from "@/lib/utils";
+
+let notices = await getNotices();
+
+if (Astro.url.pathname === "/") {
+  notices = notices.slice(0, 5);
+}
+---
+
+<div>
+  <ul class="space-y-2">
+    {
+      notices.map((notice: any) => {
+        const { title, date } = getTitleAndDateFromFilename(notice.fileName);
+        return (
+          <li class="flex items-center gap-2 hover:text-primary text-lg">
+            <FileTextIcon />
+            <a target="_blank" href={notice.url}>
+              {date} - {title}
+            </a>
+          </li>
+        );
+      })
+    }
+  </ul>
+</div>

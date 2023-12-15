@@ -1,0 +1,19 @@
+---
+import Announcement from "@/components/global/announcement.astro";
+import Layout from "@/layouts/Layout.astro";
+---
+
+<Layout title="Unites Academy">
+  <main class="bg-gray-100 pt-5 min-h-screen">
+    <div class="mx-4 sm:container space-y-8">
+      <div class="bg-white py-5 rounded-md shadow-sm">
+        <h1 class="text-gray-600 sm:text-4xl text-2xl px-10 font-semibold">
+          Announcements
+        </h1>
+      </div>
+      <div class="px-10">
+        <Announcement />
+      </div>
+    </div>
+  </main>
+</Layout>

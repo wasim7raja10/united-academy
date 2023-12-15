@@ -39,3 +39,12 @@ export async function getSchoolTimingAndRulesRegulations(): Promise<any> {
   const urls = documents.map((doc: any) => doc.url);
   return urls;
 }
+
+export async function getNotices(): Promise<any> {
+  const query = `*[_type == "pdf" && slug.current == 'notice'][].pdf[] | order(date desc) {
+    "fileName": asset->originalFilename,
+    "url": asset->url
+  }`;
+  const notices = await client.fetch<any>(query);
+  return notices;
+}

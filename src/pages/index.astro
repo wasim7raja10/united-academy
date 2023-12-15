@@ -6,6 +6,7 @@ import HomeGallery from "@/components/global/homegallery.astro";
 
 import { TbTargetArrow, TbPhoto } from "react-icons/tb";
 import { TfiAnnouncement } from "react-icons/tfi";
+import Announcement from "@/components/global/announcement.astro";
 ---
 
 <Layout title="United Academy">
@@ -23,7 +24,7 @@ import { TfiAnnouncement } from "react-icons/tfi";
           <TbTargetArrow client:only="react" /> Mission & Vision
         </a>
         <a
-          href="/the-school/announcement"
+          href="/the-school/announcements"
           class="flex items-center hover:text-primary gap-2"
         >
           <TfiAnnouncement client:only="react" /> Announcement
@@ -34,6 +35,21 @@ import { TfiAnnouncement } from "react-icons/tfi";
         >
           <TbPhoto client:only="react" /> Happening
         </a>
+      </div>
+
+      <div class="space-y-4 border border-primary px-10 py-5 rounded-md">
+        <h1
+          class="flex justify-center sm:font-bold font-medium text-2xl sm:text-3xl text-primary text-center"
+        >
+          Announcements
+        </h1>
+        <div class="space-y-2">
+          <Announcement />
+          <a
+            class="underline hover:text-primary"
+            href="/the-school/announcements">see more</a
+          >
+        </div>
       </div>
 
       <div class="space-y-8">
@@ -186,7 +202,6 @@ import { TfiAnnouncement } from "react-icons/tfi";
         </p>
         <HomeGallery />
       </div>
-
     </div>
   </main>
 </Layout>
