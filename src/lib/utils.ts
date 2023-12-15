@@ -19,3 +19,11 @@ export const imageBuilder = imageUrlBuilder(useSanityClient());
 export function urlForImage(source: any) {
   return imageBuilder.image(source);
 }
+
+export function getTitleAndDateFromFilename(filename: string) {
+  const [title, date] = filename.split("_");
+  return {
+    title,
+    date: date.replace(".pdf", ""),
+  };
+}

@@ -1,0 +1,23 @@
+---
+import { getNotices } from "@/lib/api";
+import { getTitleAndDateFromFilename } from "@/lib/utils";
+
+const notices = await getNotices();
+---
+
+<div>
+  <ul>
+    {
+      notices.map((notice: any) => {
+        const { title, date } = getTitleAndDateFromFilename(notice.fileName);
+        return (
+          <li>
+            <a target="_blank" href={notice.url}>
+              {title} - {date}
+            </a>
+          </li>
+        );
+      })
+    }
+  </ul>
+</div>
