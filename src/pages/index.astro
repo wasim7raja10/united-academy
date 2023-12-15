@@ -43,8 +43,12 @@ import Announcement from "@/components/global/announcement.astro";
         >
           Announcements
         </h1>
-        <div>
+        <div class="space-y-2">
           <Announcement />
+          <a
+            class="underline hover:text-primary"
+            href="/the-school/announcements">see more</a
+          >
         </div>
       </div>
 
@@ -198,7 +202,6 @@ import Announcement from "@/components/global/announcement.astro";
         </p>
         <HomeGallery />
       </div>
-
     </div>
   </main>
 </Layout>
