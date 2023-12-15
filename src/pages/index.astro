@@ -6,6 +6,7 @@ import HomeGallery from "@/components/global/homegallery.astro";
 
 import { TbTargetArrow, TbPhoto } from "react-icons/tb";
 import { TfiAnnouncement } from "react-icons/tfi";
+import Announcement from "@/components/global/announcement.astro";
 ---
 
 <Layout title="United Academy">
@@ -34,6 +35,17 @@ import { TfiAnnouncement } from "react-icons/tfi";
         >
           <TbPhoto client:only="react" /> Happening
         </a>
+      </div>
+
+      <div class="space-y-4 border border-primary px-10 py-5 rounded-md">
+        <h1
+          class="flex justify-center sm:font-bold font-medium text-2xl sm:text-3xl text-primary text-center"
+        >
+          Announcements
+        </h1>
+        <div>
+          <Announcement />
+        </div>
       </div>
 
       <div class="space-y-8">
