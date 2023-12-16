@@ -48,3 +48,11 @@ export async function getNotices(): Promise<any> {
   const notices = await client.fetch<any>(query);
   return notices;
 }
+
+export async function getPrincipalImage(): Promise<SanityAsset> {
+  const query = `*[_type == "images" && slug.current == 'principal'][0].images[0]{
+    asset
+  }`;
+  const images = await client.fetch<SanityAsset>(query);
+  return images;
+}
