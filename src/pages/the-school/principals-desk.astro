@@ -1,55 +1,67 @@
 ---
 import "@/styles/globals.css";
 import Layout from "@/layouts/Layout.astro";
+import { getPrincipalImage } from "@/lib/api";
+import { urlForImage } from "@/lib/utils";
+
+const principalImage = await getPrincipalImage();
 ---
 
-<Layout title="United Academy">
-  <main class="bg-gray-100 min-h-screen">
-    <div class="container">
-      <img
+<Layout title="United Academy - Principal's Desk">
+  <main class="bg-gray-100 pt-5 min-h-screen">
+    <div class="mx-4 sm:container space-y-8">
+      <!-- <img
         src={"/principals-desk-banner.jpg"}
         class="rounded-md w-full h-auto max-h-80"
         alt="About Banner"
-      />
-      <div class="bg-white py-5 my-5 rounded-md shadow-sm">
+      /> -->
+      <div class="bg-white py-5 rounded-md shadow-sm">
         <h1 class="text-gray-600 sm:text-4xl text-2xl px-10 font-semibold">
           Principal’s Desk
         </h1>
       </div>
       <div class="flex justify-center w-full">
         <img
-          src="https://github.com/shadcn.png"
-          class="h-60 w-60 rounded-md"
-          alt=""
+          src={urlForImage(principalImage.asset).url()}
+          class="h-36 w-36 sm:h-60 sm:w-60 rounded-md"
+          alt="principal image"
         />
       </div>
-      <div class=" sm:text-xl py-10 space-y-5 text-base text-gray-600 mx-auto sm:w-3/4 w-full ">
-        <h1 class=" font-bold ">Dear Parents,</h1>
+      <div
+        class="sm:text-xl py-10 space-y-5 text-base text-gray-600 mx-auto sm:w-3/4 w-full"
+      >
+        <h1 class="font-bold">Dear Parents,</h1>
         <p class="">
-          We are happy to be back and how! Not that we ever took a breather. But
-          yes, the pandemic did put a forced break on our ‘physical’ presence.
-          Shifting education ‘online’ was the ‘new normal’ and we, at Delhi
-          Public School Ruby Park, judiciously used the time to revamp, attune
-          and upskill ourselves. Our sole focus concentrating on eradicating any
-          teaching-learning gap and engaging students in interesting and
-          insightful lessons. It was a job well-done by our team of diligent and
-          meticulous planners and educators.
+          Welcome to the Principal’s Desk at United Academy, a beacon of
+          holistic education nestled in the serene surroundings of Motiganj,
+          Samsi, in the heart of Malda district, West Bengal. At United Academy,
+          we take pride in nurturing young minds and fostering an environment
+          that stimulates curiosity, creativity, and academic excellence. As the
+          principal, I am committed to guiding our students on a journey of
+          discovery, instilling in them a love for learni ng, and preparing them
+          to thrive in an ever-evolving world.
         </p>
         <p class="">
-          But that was 2020. The New Year has ushered a new beginning. DPS Ruby
-          Park has opened its gates yet again to warmly welcome freshers and
-          scholars alike. Better-prepared, better-suited and equipped with the
-          best of technology, we are raring to go, pick up from where we had
-          left off and continue doing what we do best. Moulding those mounds of
-          clay into mature, confident and responsible leaders of tomorrow with a
-          remarkable sense of duty as human beings.
+          Our institution stands as a testament to our unwavering dedication to
+          providing a comprehensive educational experience that encompasses not
+          only academic prowess but also character development and a strong
+          sense of community. We believe in empowering our students to become
+          critical thinkers, compassionate individuals, and responsible global
+          citizens. Join us at United Academy as we embark together on a
+          transformative educational voyage, where every student's potential is
+          valued, nurtured, and celebrated.
         </p>
-        <p class="">
-          If today we have managed to carve a niche for ourselves, it has been
-          because of your constant support and unwavering faith in our efforts
-          and attempts, dear parents. We, as a team, cannot thank you enough and
-          continue to hope and believe that we shall work in unison for the best
-          interests of our young minds.
+        <p>
+          At United Academy, we recognize the significance of imparting
+          religious values and fostering character development as integral
+          components of a well-rounded education. Through thoughtful guidance
+          and ethical education, we aim to cultivate in our students a strong
+          moral compass, integrity, and a deep appreciation for ethical
+          decision-making. By nurturing a sense of responsibility towards
+          oneself and the community, we strive to shape individuals who not only
+          excel academically but also embody virtues that contribute positively
+          to society, promoting harmony and understanding in an increasingly
+          interconnected world.
         </p>
       </div>
     </div>
