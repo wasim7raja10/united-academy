@@ -56,3 +56,11 @@ export async function getPrincipalImage(): Promise<SanityAsset> {
   const images = await client.fetch<SanityAsset>(query);
   return images;
 }
+
+export async function getMissionVisionImages(): Promise<SanityAsset> {
+  const query = `*[_type == "images" && slug.current == 'mission-vision'][0].images[]{
+    asset
+  }`;
+  const images = await client.fetch<SanityAsset>(query);
+  return images;
+}
