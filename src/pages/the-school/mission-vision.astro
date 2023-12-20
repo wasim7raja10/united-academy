@@ -1,6 +1,10 @@
 ---
 import "@/styles/globals.css";
 import Layout from "@/layouts/Layout.astro";
+import { getMissionVisionImages } from "@/lib/api";
+import { urlForImage } from "@/lib/utils";
+
+const images = await getMissionVisionImages();
 ---
 
 <Layout title="United Academy">
@@ -13,7 +17,7 @@ import Layout from "@/layouts/Layout.astro";
       </div>
       <div class="sm:px-10 px-0">
         <div class="space-y-5 py-5">
-          <div class="rounded-md bg-blue-100 grid md:grid-cols-3 grid-cols-1">
+          <div class="rounded-md bg-blue-100 grid md:grid-cols-4 grid-cols-1">
             <div class="col-span-2 order-last sm:order-none">
               <div class="items-center p-5 sm:text-xl text-base h-full">
                 <h1 class="py-5 text-2xl text-blue-600 font-bold">Mission</h1>
@@ -56,16 +60,15 @@ import Layout from "@/layouts/Layout.astro";
               </div>
             </div>
             <img
-              src={"/mission_vision/mission-img1.jpg"}
-              class="h-full w-full rounded-md"
-              alt=""
+              src={urlForImage(images[0].asset).url()}
+              class="h-full w-full rounded-r-md object-cover col-span-2"
+              alt="Mission image"
             />
           </div>
           <div class="rounded-md grid sm:grid-cols-3 grid-cols-1">
             <div class="col-span-2 bg-blue-100 order-last">
               <div class="items-center p-5 sm:text-xl text-base h-full">
                 <h1 class="text-2xl text-blue-600 font-bold py-2">Vision</h1>
-
                 <p class="">
                   Delhi Public School, Ruby Park, Kolkata, is under the Om Dayal
                   Educational & Research Society, which constantly strives to
@@ -81,9 +84,9 @@ import Layout from "@/layouts/Layout.astro";
               </div>
             </div>
             <img
-              src={"/mission_vision/vision-img.jpg"}
-              class="h-full w-full rounded-l-md"
-              alt=""
+              src={urlForImage(images[1].asset).url()}
+              class="h-full w-full rounded-l-md object-cover"
+              alt="Vision image"
             />
           </div>
           <div class="rounded-md grid sm:grid-cols-3 grid-cols-1">
@@ -110,9 +113,9 @@ import Layout from "@/layouts/Layout.astro";
               </div>
             </div>
             <img
-              src={"/mission_vision/values-img.jpg"}
-              class="h-full w-full rounded-r-md"
-              alt=""
+              src={urlForImage(images[2].asset).url()}
+              class="h-full w-full rounded-r-md object-cover"
+              alt="Values image"
             />
           </div>
         </div>
