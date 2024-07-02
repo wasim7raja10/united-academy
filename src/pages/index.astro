@@ -1,8 +1,8 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import Carousel from "@/components/global/carousel.astro";
-import Teachers from "@/components/global/teacher.astro";
 import HomeGallery from "@/components/global/homegallery.astro";
+import Teacher from "@/components/global/teacher";
+import HomepageCarousel from "@/components/global/homepage-carousel";
 
 import { TbTargetArrow, TbPhoto } from "react-icons/tb";
 import { TfiAnnouncement } from "react-icons/tfi";
@@ -10,8 +10,8 @@ import Announcement from "@/components/global/announcement.astro";
 ---
 
 <Layout title="United Academy">
-  <main class="bg-gray-100 relative">
-    <Carousel />
+  <main class="bg-gray-100">
+    <HomepageCarousel client:visible />
 
     <div class="mx-4 sm:container space-y-16 py-6">
       <div
@@ -93,7 +93,7 @@ import Announcement from "@/components/global/announcement.astro";
         </div>
       </div>
 
-      <Teachers />
+      <Teacher client:only />
 
       <div class="flex flex-wrap px-2">
         <div class="md:w-1/3 w-full bg-white mx-auto">

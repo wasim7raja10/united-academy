@@ -1,5 +1,6 @@
 import { useSanityClient } from "@sanity/astro";
 import type { SanityAsset } from "@sanity/image-url/lib/types/types";
+import sanityClient from "./sanity-react";
 
 export const client = useSanityClient();
 
@@ -7,7 +8,7 @@ export async function getHomepageBanners(): Promise<SanityAsset> {
   const query = `*[_type == "images" && slug.current == 'homepage-banner'][0].images[]{
     asset
   }`;
-  const images = await client.fetch<SanityAsset>(query);
+  const images = await sanityClient.fetch<SanityAsset>(query);
   return images;
 }
 
