@@ -16,12 +16,8 @@ export default function HomepageCarousel() {
 
   return (
     <div className=" max-w-[1800px] mx-auto">
-      <section
-        className="splide"
-        id="carousel"
-        aria-label="Homepage Image Carousel"
-      >
-        <Carousel plugins={[plugin.current]}>
+      <section aria-label="Homepage Image Carousel">
+        <Carousel opts={{ loop: true }} plugins={[plugin.current]}>
           <CarouselContent>
             {images.map((it: any) => (
               <CarouselItem className="aspect-[343/90]">

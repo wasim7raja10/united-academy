@@ -14,13 +14,8 @@ export default function Teacher() {
         Teachers
       </h1>
       <div className="mx-10">
-        <Carousel
-          opts={{
-            align: "start",
-          }}
-          className=""
-        >
-          <CarouselContent className="">
+        <Carousel opts={{ loop: true }}>
+          <CarouselContent>
             {teachers.map((teacher, index) => (
               <CarouselItem className="sm:basis-1/3 md:basis-1/4" key={index}>
                 <div
